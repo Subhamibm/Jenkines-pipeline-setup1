@@ -59,20 +59,14 @@ pipeline {
                 }
                 success {
                     echo "Pipeline run completed successfully."
-                    mail(from: "Subham.roy@ibm.com",
-                                            to: "Subham.roy@ibm.com",
-                                            subject: "That build passed.",
-                                            body: "Nothing to see here")
+
                 }
                 failure {
                     echo "Pipeline run failed."
-                    mail(from: "Subham.roy@ibm.com",
-                                            to: "Subham.roy@ibm.com",
-                                            subject: "That build failed!",
-                                            body: "Nothing to see here")
+                    
                 }
 
         }
 
-        
+
 }

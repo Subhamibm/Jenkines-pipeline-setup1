@@ -21,12 +21,14 @@ pipeline {
 
         stage('SonarQube') {
                     steps {
-                    script {
-                        def scannerHome = tool 'SonarQubeScanner1'
-                        withSonarQubeEnv('SonarQube') {
-                            sh "${scannerHome}/bin/sonar-scanner"
-                        }
-                        }
+//                     script {
+//                         def scannerHome = tool 'SonarQubeScanner1'
+//                         withSonarQubeEnv('SonarQube') {
+//                             sh "${scannerHome}/bin/sonar-scanner"
+//                         }
+//                         }
+
+                        bat './gradlew clean install sonar:sonar -Dsonar.host.url=http://localhost:9000 -Dsonar.analysis.mode=publish'
                     }
         }
 
@@ -63,7 +65,7 @@ pipeline {
                 }
                 failure {
                     echo "Pipeline run failed."
-                    
+
                 }
 
         }

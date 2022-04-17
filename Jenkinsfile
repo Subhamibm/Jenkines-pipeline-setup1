@@ -48,4 +48,35 @@ pipeline {
 			}
 		}
 	}
+
+	 // Post can be used both on individual stages and for the entire build.
+            post {
+
+                always {
+                            // Let's wipe out the workspace before we finish!
+
+                    echo "Pipeline run ended..."
+                }
+                success {
+                    echo "Pipeline run completed successfully."
+                }
+                failure {
+                    echo "Pipeline run failed."
+                }
+
+        }
+
+        success {
+                mail(from: "Subham.roy@ibm.com",
+                        to: "Subham.roy@ibm.com",
+                        subject: "That build passed.",
+                        body: "Nothing to see here")
+            }
+
+            failure {
+                mail(from: "Subham.roy@ibm.com",
+                        to: "Subham.roy@ibm.com",
+                        subject: "That build failed!",
+                        body: "Nothing to see here")
+            }
 }

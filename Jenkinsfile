@@ -28,7 +28,7 @@ pipeline {
 //                         }
 //                         }
 
-                        bat './gradlew sonarqube -Dsonar.host.url=http://localhost:9000 -Dsonar.analysis.mode=publish'
+                        bat './gradlew sonarqube -Dsonar.host.url=http://localhost:9000 -Dsonar.analysis.mode=publish -Dsonar.login=admin -Dsonar.password=Subham@7384990064'
                     }
         }
 

@@ -1,13 +1,13 @@
 pipeline {
 	agent any
 	stages {
-		stage('One') {
+		stage('Entering') {
 			steps {
 				echo 'Hi, this is Disruptive Events team from IBM'
 			}
 		}
 
-		stage('Two') {
+		stage('Permission') {
 			steps {
 				input('Do you want to proceed?')
 			}
@@ -31,7 +31,7 @@ pipeline {
             }
         }
 
-		stage('Five') {
+		stage('Exiting') {
 			steps {
 				echo 'Finished'
 			}
